@@ -1,4 +1,16 @@
+function displayTable(arr){
+  var strTable = "<table>";
+  for (var i=0; i<arr.length;i++){
+    strTable = strTable + "<tr>";
+//for (var j= 1; j <=2; j++) {
+strTable = strTable + "<td>" + (arr[i])+ "</td>";
+//}
 
+strTable = strTable + "</tr>";
+}
+strTable =strTable + "</table>"
+return strTable;
+}
 
 function displayNum()
 {    var sizeOfNumbers=document.getElementById("sizeOfNumbers").value;
@@ -6,9 +18,7 @@ function displayNum()
      var maxVal=document.getElementById("maxVal").value;
 
 var arrayNumbers = randomNumber(sizeOfNumbers,{min:minVal, max:maxVal});
-
-
-	document.getElementById("arrayNumbers").innerHTML=arrayNumbers;
+document.getElementById("tableResults").innerHTML=displayTable(arrayNumbers);
 }
 
 
