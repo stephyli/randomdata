@@ -1,47 +1,22 @@
-//testchange
-function randomNumber(numSize,minOrMax) {
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="randomdata.css">
+  </head>
+<body>
 
 
 
-    var arrayOfNumbers=[];
-    for (var i=0;i<numSize;i++){
-    //is it defined?
-      if (minOrMax.min===undefined){
-         minOrMax.min=0;
-      }
-      if (minOrMax.max===undefined){
-         minOrMax.max=0;
-      }
-      //can it be converted to a number?
-
-      if (isNaN(parseInt(minOrMax.max))){
-         throw"please input an integer as max";
-      }
-      if (isNaN(parseInt(minOrMax.min))){
-         throw"please input an integer as min";
-      }
+<button onclick="displayNum()">Generate </button>
+ <input type="text" id="sizeOfNumbers" size="3"> number(s)
+between
+<input type="text" id="minVal" size="3">
+and
+<input type="text" id="maxVal" size="3">
+= <span id="arrayNumbers" style="font-size:115%"></span>
 
 
-      //converting string into number
+<script src="randomdata.js "></script>
 
 
-      minOrMax.min = parseInt(minOrMax.min);
-      minOrMax.max = parseInt(minOrMax.max);
-
-      //making sure max is the bigger number
-      if (minOrMax.max<minOrMax.min){
-         var reverse=minOrMax.max;
-         minOrMax.max=minOrMax.min;
-         minOrMax.min=reverse;
-      }
-      var number = Math.floor(minOrMax.min+Math.random()*(minOrMax.max-minOrMax.min+1));
-      arrayOfNumbers.push(number);
-
-   }
-
-    return arrayOfNumbers;
-}
-
-
-
-randomNumber(5,{max:40, min:"30"});
+</body>
+</html>
