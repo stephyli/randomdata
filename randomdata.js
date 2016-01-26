@@ -63,3 +63,14 @@ function randomNumber(numSize,minOrMax) {
 
     return arrayOfNumbers;
 }
+
+function generateInitials(nameSize) {
+  var initials ="";
+  var alphaInitial ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for (var i=0; i<nameSize; i++){
+  initials = alphaInitial.charAt(Math.floor(Math.random()*alphaInitial.length));
+  }
+  return initials+".";
+}
+
+generateInitials(10);
