@@ -64,13 +64,33 @@ function randomNumber(numSize,minOrMax) {
     return arrayOfNumbers;
 }
 
-function generateInitials(nameSize) {
-  var initials ="";
-  var alphaInitial ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  for (var i=0; i<nameSize; i++){
-  initials = alphaInitial.charAt(Math.floor(Math.random()*alphaInitial.length));
-  }
-  return initials+".";
+function displayTable(arr){
+  var strTable = "<table>";
+  for (var i=0; i<arr.length;i++){
+    strTable = strTable + "<tr>";
+//for (var j= 1; j <=2; j++) {
+strTable = strTable + "<td>" + (arr[i])+ "</td>";
+//}
+
+strTable = strTable + "</tr>";
+}
+strTable =strTable + "</table>"
+return strTable;
 }
 
-generateInitials(10);
+function displayInit(){
+var sizeOfInit=document.getElementById("sizeOfInit").value;
+var arrayInit=generateInitials(sizeOfInit);
+document.getElementById("initResults").innerHTML=displayTable(arrayInit);
+}
+function generateInitials(nameSize){
+  var initials =[];
+
+  var alphaInitial ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for (var i=0; i<nameSize; i++){
+  var initArray = alphaInitial.charAt(Math.floor(Math.random()*alphaInitial.length))+".";
+   initials.push(initArray);
+  }
+  return initials;
+
+}
