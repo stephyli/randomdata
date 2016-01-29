@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head><link rel="stylesheet" type="text/css" href="randomdata.css">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="randomdata.css">
+
   </head>
 <body>
-  <input type="file" multiple/>
-<button onclick="displayNum()">Generate </button>
+
+<div class="container">
+ 
+
+<h3>First names</h3>
+
+  <form role="form">
+    <div class="checkbox">
+      <label><input type="checkbox" value="">Female</label>
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" value="">Male</label>
+    </div>
+
+    </div>
+  </form>
+<button type="button" class="btn btn-success" onclick="">Generate </button>
+<br>
+<br>
+<button type="button" class="btn btn-success" onclick="displayNum()">Generate </button>
  <input type="text" id="sizeOfNumbers" size="3" value ="10"> number(s)
 between
 <input type="text" id="minVal" size="3" value ="1">
@@ -13,12 +36,15 @@ and
 Results : <span id="arrayNumbers" style="font-size:115%"></span>
 
 <div id="tableResults"></div>
-<button onclick="displayInit()">Generate </button>
+<br>
+
+<button type="button" class="btn btn-success" onclick="displayInit()">Generate </button>
 <input type="text" id="sizeOfInit" size="3" value ="10"> Middle initial(s)<br>
 Results : <span id="arrayNumbers" style="font-size:115%"></span>
 
 <div id="initResults"></div>
 
+</div>
 
 
 <script type="text/javascript" src="randomdata.js "></script>
