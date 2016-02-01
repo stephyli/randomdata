@@ -94,3 +94,21 @@ function generateInitials(nameSize){
   return initials;
 
 }
+
+function openFile(){
+    
+  var fs = require('fs');
+  var itemArray =[];
+    
+fs.readFile('./male.txt', function(err, data) {
+    if(err) throw err;
+    var array = data.toString().split("\n");
+    for(i in array) {
+        itemArray.push(array[i]);
+        
+    }
+
+});
+    document.getElementById("output").innerHTML=displayTable(itemArray);
+}
+
