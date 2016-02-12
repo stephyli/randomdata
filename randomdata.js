@@ -94,3 +94,12 @@ function generateInitials(nameSize){
   return initials;
 
 }
+
+function readFile(){
+
+    $.getJSON( "whatever.txt", readFileResponse);
+}
+
+function readFileResponse(response){
+    console.log(response);
+}
