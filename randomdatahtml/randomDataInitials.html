@@ -1,29 +1,114 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
  <link rel="stylesheet" type="text/css" href="../randomdata.css">
 
-  </head>
+  <style>
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+      background-color: #1abc9c; /* Green */
+      color: #ffffff;
+  }
+  .bg-2 { 
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+  
+  .bg-4 { 
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+  .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
+  .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
+.customButtonWidth {
+    width: 120px;
+}
+.inputColor{
+    color:#000000;
+}
+  </style>
+</head>
 <body>
 
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Home</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">First Names</a></li>
+        <li><a href="#">Middle Initials</a></li>
+        <li><a href="#">Last Names</a></li>
+<li><a href="#">Full Names</a></li>
+        <li><a href="#">Numbers</a></li>
+        <li><a href="#">Addresses</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid bg-1 text-center">
+  <h3 class="margin">Middle Initials</h3>
 <div class="container">
  
 <br>
 
-<button type="button" class="btn btn-success" onclick="displayInit()">Generate </button>
-<input type="text" id="sizeOfInit" size="3" value ="10"> Middle initial(s)<br>
+<button type="button" class="btn btn-success customButtonWidth" onclick="displayInit()">Generate </button> 
+<input type="text" id="sizeOfInit" size="3"class="inputColor"> Middle Initials<br>
 Results : <span id="arrayNumbers" style="font-size:115%"></span>
 
-<div id="initResults"></div>
+
+
+</div>
 
 </div>
 
 
-<script type="text/javascript" src="../randomdata.js"></script>
+<div class="container-fluid bg-2 text-center">
 
+<div id="initResults"></div>
+</div>
+
+
+<footer class="container-fluid bg-4 text-center" >
+
+</footer>
+
+<script type="text/javascript" src="../randomdata.js"></script>
 </body>
 </html>

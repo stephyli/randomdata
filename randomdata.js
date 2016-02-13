@@ -1,3 +1,4 @@
+// randomDataNumbers.html
 function displayNum()
 {    
      var sizeOfNumbers=$("#sizeOfNumbers").val();
@@ -73,6 +74,8 @@ function displayTable(arr)
 strTable =strTable + "</table>"
 return strTable;
 }
+
+// randomDataInitials.html
 
 function displayInit()
 {
