@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
  <link rel="stylesheet" type="text/css" href="../randomdata.css">
- <link rel="stylesheet" type="text/css" href="../randomdata.css">
+
 </head>
 <body>
 
@@ -70,85 +70,50 @@
 </footer>
 
 <script>
-function checkBox()
+    function displayInit()
+    {
+        readFile('../randomdata/male.txt', 5);
+    }
+    
+function readFile(file, size){
+    
+    var fs = require('fs');
+ 
+fs.readFile(file, 'utf8', function(err, contents) 
+            
 {
-   if (box is checked)
-   {
-      execute code;
-   }
+    var arrayName = contents.split('\n');
+    var arrayNameResults=[];
+    for(var i=0; i<=size; i++)
+    {
+    var arrayIndex = Math.floor(Math.random() * arrayName.length) + 1;
+     //console.log(i+arrayName[arrayIndex]);  
+        arrayNameResults.push(arrayName[arrayIndex]);
+        
+    }
+    
+});
+ $("#initResults").html(displayTable(arrayNameResults));
+//console.log('after calling readFile');
 }
-function displayTable(arr){
+
+    
+    
+    function displayTable(arr)
+{
   var strTable = "<table>";
-  for (var i=0; i<arr.length;i++){
+  for (var i=0; i<arr.length;i++)
+  {
     strTable = strTable + "<tr>";
-//for (var j= 1; j <=2; j++) {
-strTable = strTable + "<td>" + (arr[i])+ "</td>";
-//}
-strTable = strTable + "</tr>";
-}
+    //for (var j= 1; j <=2; j++)
+    {
+    strTable = strTable + "<td>" + (arr[i])+ "</td>";
+    }
+
+    strTable = strTable + "</tr>";
+  }
 strTable =strTable + "</table>"
 return strTable;
 }
-var FileReader = function(){};
-FileReader.prototype =
-{
-	url:"",
-	contents:"",
-	onReady:function(){},
-	setUrl: function(u)
-	{
-		this.url=u;
-	},
-	loadFile: function()
-	{
-		//load file
-		$.get(this.url, this.onFileLoaded.bind(this));
-	},
-	//this function gets called after file has loaded
-	onFileLoaded: function(data)
-	{
-		this.contents=data;
-		//function needs to finish loading before getting called
-		
-		this.onReady.bind(this)();
-	
-	},
-	getArray: function()
-	{
-		return this.contents.split("\n");
-	}
-	
-};
-var NameGenerator = function(){};
-NameGenerator.prototype=
-{
-	names:[],
-	generateRandomNames: function(nameSize)
-	{
-		var newArray=[];
-		for(var i=0;i<nameSize;i++){
-			var arrayIndex = Math.floor(Math.random() * this.names.length) + 1;
-			var name = this.names[arrayIndex];
-			console.log(name);
-		}
-	}
-	
-	
-}
-function getRandomNames(filePath,nameSize)
-{
-	var fileReaderInstance = new FileReader();
-	fileReaderInstance.setUrl(filePath);
-	fileReaderInstance.loadFile();
-	fileReaderInstance.onReady=function()
-	{
-		var nameGeneratorInstance = new NameGenerator();
-		nameGeneratorInstance.names=this.getArray();
-		nameGeneratorInstance.generateRandomNames(nameSize);
-	}
-}
-getRandomNames("/male.txt",100);
-getRandomNames("/female.txt",50);
-</script>
 </body>
 </html>
