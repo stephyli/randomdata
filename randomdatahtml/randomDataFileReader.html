@@ -70,50 +70,48 @@
 </footer>
 
 <script>
-    function displayInit()
-    {
-        readFile('../randomdata/male.txt', 5);
-    }
-    
-function readFile(file, size){
-    
+function readFile(file, size, callback)
+{
     var fs = require('fs');
- 
-fs.readFile(file, 'utf8', function(err, contents) 
-            
-{
-    var arrayName = contents.split('\n');
-    var arrayNameResults=[];
-    for(var i=0; i<=size; i++)
+    
+    fs.readFile(file, 'utf8', function(err, contents) 
     {
-    var arrayIndex = Math.floor(Math.random() * arrayName.length) + 1;
-     //console.log(i+arrayName[arrayIndex]);  
-        arrayNameResults.push(arrayName[arrayIndex]);
+        var arrayName = contents.split('\n');
+        var newArray= [];
+        for(var i=0; i<=size; i++)
+        {
+            var arrayIndex = Math.floor(Math.random() * arrayName.length) + 1;
+            newArray.push(i+arrayName[arrayIndex]);
+        }
         
-    }
-    
-});
- $("#initResults").html(displayTable(arrayNameResults));
-//console.log('after calling readFile');
+        callback( newArray );
+    });
 }
 
-    
-    
-    function displayTable(arr)
+
+
+
+
+var http = require('http');
+
+var server = http.createServer(function(req, res)
 {
-  var strTable = "<table>";
-  for (var i=0; i<arr.length;i++)
-  {
-    strTable = strTable + "<tr>";
-    //for (var j= 1; j <=2; j++)
+    var maleNames = readFile('../randomdata/male.txt', 5, function(maleNames)
     {
-    strTable = strTable + "<td>" + (arr[i])+ "</td>";
-    }
+        var femaleNames = readFile('../randomdata/female.txt', 5, function(femaleNames)
+        {
+            res.writeHeader(200, {"Content-Type": "text/html"});
+            res.write( maleNames.join('<br>') );
+            res.write( femaleNames.join('<br>') );
+            res.end();
+        });
+    });
+});
+server.listen(8080);
+    
+</script>
 
-    strTable = strTable + "</tr>";
-  }
-strTable =strTable + "</table>"
-return strTable;
-}
+  
+        
 </body>
 </html>
