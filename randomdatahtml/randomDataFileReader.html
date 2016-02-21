@@ -46,73 +46,41 @@
 
 <form role="form">
     <div class="checkbox">
-      <label><input type="checkbox" value="" id ="femaleBox" onclick="checkBox()">Female</label>
+      <label> <input type="text" id="femaleNameCount" size="4"class="inputColor"> Female Names </label> 
        <div class="checkbox">
-      <label><input type="checkbox" value="" id ="maleBox" onclick="checkBox()">Male</label>
+      <label><input type="text" id="maleNameCount" size="4"class="inputColor"> Male Names </label>
        </div>
 
     </div>
 </form>
-<button type="button" class="btn btn-success customButtonWidth" onclick="">Generate </button>
+    <select id="formatType">
+	<option value="table">Table</option>
+	<option value="tab">Tab</option>
+</select><br>
+
+
+<button type="button" class="btn btn-success customButtonWidth"  onclick="generateList();">Generate </button>
 
 
 </div>
 </div>
 
 <div class="container-fluid bg-2 text-center" >
-<div id="outPut" class="scroll" style="display:inline-block; color: black;></div>
+<div id="output" class="scroll" style="display:inline-block; color: black;"></div>
 
 </div>
 
 
 
-<footer class="container-fluid bg-4 text-center" >
-
-</footer>
-
-<script>
-function readFile(file, size, callback)
-{
-    var fs = require('fs');
+<footer class="container-fluid bg-4 text-center">
     
-    fs.readFile(file, 'utf8', function(err, contents) 
-    {
-        var arrayName = contents.split('\n');
-        var newArray= [];
-        for(var i=0; i<=size; i++)
-        {
-            var arrayIndex = Math.floor(Math.random() * arrayName.length) + 1;
-            newArray.push(i+arrayName[arrayIndex]);
-        }
-        
-        callback( newArray );
-    });
-}
-
-
-
-
-
-var http = require('http');
-
-var server = http.createServer(function(req, res)
-{
-    var maleNames = readFile('../randomdata/male.txt', 5, function(maleNames)
-    {
-        var femaleNames = readFile('../randomdata/female.txt', 5, function(femaleNames)
-        {
-            res.writeHeader(200, {"Content-Type": "text/html"});
-            res.write( maleNames.join('<br>') );
-            res.write( femaleNames.join('<br>') );
-            res.end();
-        });
-    });
-});
-server.listen(8080);
+    </footer>
+<script type="text/javascript" src="../phrasegenerator.js"></script>
+    </body>
     
-</script>
-
-  
-        
-</body>
 </html>
+                                                
+                                                
+                                                
+                                                
+                                                
