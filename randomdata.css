@@ -87,4 +87,7 @@ div.scroll {
     overflow: scroll;
 }
 
-    
+div.map { 
+    height: 20%; 
+}
+       
