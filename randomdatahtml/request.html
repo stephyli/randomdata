@@ -1,0 +1,33 @@
+<html>
+<head>
+    
+</head>
+    
+<body>
+
+<div id="id01"></div>
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "http://api.wunderground.com/api/e13d12f1fb4a53b4/conditions/q/CA/San_Francisco.json";
+
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var responseObject = JSON.parse(xmlhttp.responseText);
+        myFunction(responseObject);
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(response) {
+    console.log('Data', response.current_observation.dewpoint_c);
+//    document.getElementById("id01").innerHTML = out;
+}
+    
+    
+</script>
+    
+</body>
+    
+</html>
